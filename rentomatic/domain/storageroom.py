@@ -12,15 +12,13 @@ class StorageRoom(object):
 
     @classmethod
     def from_dict(cls, adict):
-        room = StorageRoom(
+        return StorageRoom(
             code=adict['code'],
             size=adict['size'],
             price=adict['price'],
             latitude=adict['latitude'],
             longitude=adict['longitude'],
         )
-
-        return room
 
     def to_dict(self):
         return {

@@ -4,7 +4,7 @@ from rentomatic.shared import request_object as req
 def test_invalid_request_object_is_false():
     request = req.InvalidRequestObject()
 
-    assert bool(request) is False
+    assert not bool(request)
 
 
 def test_invalid_request_object_accepts_errors():
@@ -19,4 +19,4 @@ def test_invalid_request_object_accepts_errors():
 def test_valid_request_object_is_true():
     request = req.ValidRequestObject()
 
-    assert bool(request) is True
+    assert bool(request)

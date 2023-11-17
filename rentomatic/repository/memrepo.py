@@ -10,14 +10,14 @@ class MemRepo:
 
     def _check(self, element, key, value):
         if '__' not in key:
-            key = key + '__eq'
+            key = f'{key}__eq'
 
         key, operator = key.split('__')
 
         if operator not in ['eq', 'lt', 'gt']:
-            raise ValueError('Operator {} is not supported'.format(operator))
+            raise ValueError(f'Operator {operator} is not supported')
 
-        operator = '__{}__'.format(operator)
+        operator = f'__{operator}__'
 
         if key in ['size', 'price']:
             return getattr(element[key], operator)(int(value))

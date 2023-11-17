@@ -42,9 +42,8 @@ def storageroom_dicts():
 
 def _check_results(domain_models_list, data_list):
     assert len(domain_models_list) == len(data_list)
-    assert all([isinstance(dm, DomainModel) for dm in domain_models_list])
-    assert set([dm.code for dm in domain_models_list]
-               ) == set([d['code'] for d in data_list])
+    assert all(isinstance(dm, DomainModel) for dm in domain_models_list)
+    assert {dm.code for dm in domain_models_list} == {d['code'] for d in data_list}
 
 
 def test_repository_list_without_parameters(storageroom_dicts):
